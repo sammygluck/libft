@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:28:42 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 18:29:26 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/11 18:58:43 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/11 19:04:23 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
-#ifndef LIBFT_H_
-#define LIBFT_H_
 
-int	ft_isalpha(int	c);
-int	ft_isdigit(int	c);
-int	ft_isalnum(int	c);
-int	ft_isascii(int	c);
-int	ft_isprint(int	c);
-int	ft_strlen(int	c);
-void	*ft_memset(void *str, int c, size_t len);
-void	*ft_bzero(void *str, size_t len);
-void	*ft_memmove(void *dest, const void *src, size_t n);
-void    *ft_memcpy(void *dest, const void *src, size_t n);
+#include "libft.h"
 
-#endif
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	i;
 
+	i = 0;
+	if (size > 0)
+	{
+		while(i < size)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = 0;
+	}
+	while(src[i])
+		i++;
+	return (i);
+}
