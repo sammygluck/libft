@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:28:42 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 18:29:26 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/12 17:00:44 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -18,7 +18,7 @@ int	ft_isdigit(int	c);
 int	ft_isalnum(int	c);
 int	ft_isascii(int	c);
 int	ft_isprint(int	c);
-int	ft_strlen(int	c);
+int	ft_strlen(char	*str);
 void	*ft_memset(void *str, int c, size_t len);
 void	*ft_bzero(void *str, size_t len);
 void	*ft_memmove(void *dest, const void *src, size_t n);

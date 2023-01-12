@@ -1,42 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:47:56 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 15:37:48 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/12 16:25:25 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/12 16:32:08 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdio.h>
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
+int	ft_toupper(int	c)
 {
-	char	*d;
-	const char 	*s;
-	size_t	i;
-
-	d = (char *) dest;
-	s = (const char *) src;	
-	i = 0;
-	
-	if (d > s && d < (s + n))
-	{
-		d += n - 1;
-		s += n - 1;
-		while(i < n)
-		{
-			*d-- = *s--;
-			i++;
-		}
-	}
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
 	else
-	while(i < n)
-	{
-		*d++ = *s++;
-		i++;
-	}
-	return dest;
-	
+		return (c);
 }
 
+int	main(void)
+{
+	printf("%c", ft_toupper('!'));
+}

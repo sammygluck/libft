@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:47:56 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 15:37:48 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/12 16:33:10 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/12 16:35:22 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*d;
-	const char 	*s;
-	size_t	i;
+#include "libft.h"
+#include <stdio.h>
 
-	d = (char *) dest;
-	s = (const char *) src;	
-	i = 0;
-	
-	if (d > s && d < (s + n))
-	{
-		d += n - 1;
-		s += n - 1;
-		while(i < n)
-		{
-			*d-- = *s--;
-			i++;
-		}
-	}
+int	ft_tolower(int	c)
+{
+	if(c >= 'A' && c <= 'Z')
+		return(c + 32);
 	else
-	while(i < n)
-	{
-		*d++ = *s++;
-		i++;
-	}
-	return dest;
-	
+		return(c);
 }
 
+int	main(void)
+{
+	printf("%c", ft_tolower('A'));
+}

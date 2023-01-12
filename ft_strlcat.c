@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:47:56 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 15:37:48 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/12 15:55:46 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/12 16:13:30 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*d;
-	const char 	*s;
-	size_t	i;
+#include "libft.h"
 
-	d = (char *) dest;
-	s = (const char *) src;	
+size_t strlcat(char *dst, const char *src, size_t dstsize)
+{
+	int	i;
+
 	i = 0;
-	
-	if (d > s && d < (s + n))
+	while(i < (dstsize - strlen(dst)))
 	{
-		d += n - 1;
-		s += n - 1;
-		while(i < n)
-		{
-			*d-- = *s--;
-			i++;
-		}
+		dst + strlen(dst) + i = src + i;
+		i++;	
 	}
-	else
-	while(i < n)
-	{
-		*d++ = *s++;
-		i++;
-	}
-	return dest;
-	
+
 }
 

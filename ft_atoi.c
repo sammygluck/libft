@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 16:47:56 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 15:37:48 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/12 17:08:44 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/12 17:29:17 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    *ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*d;
-	const char 	*s;
-	size_t	i;
+#include "libft.h"
+#include <stdio.h>
 
-	d = (char *) dest;
-	s = (const char *) src;	
+int	ft_atoi(char *str)
+{
+	int	i;
+	int	number;
+	int	sign;
+
 	i = 0;
-	
-	if (d > s && d < (s + n))
+	number = 0;
+	sign = 1;
+	while (str[i] >= 8 && str[i] <= 13 || str[i] == 32)
+		i++;
+	while(str[i] == '+')
+		i++;
+	while(str[i] == '-')
 	{
-		d += n - 1;
-		s += n - 1;
-		while(i < n)
-		{
-			*d-- = *s--;
-			i++;
-		}
-	}
-	else
-	while(i < n)
-	{
-		*d++ = *s++;
+		sign *= -1;
 		i++;
 	}
-	return dest;
-	
+	while (str[i])
+	{
+		number = (number * 10) + str[i] - '0';
+		i++;
+	}
+	return (number * sign);
 }
 
+int	main(void)
+{
+	printf("%d", ft_atoi("   ++++-----1050"));
+}
