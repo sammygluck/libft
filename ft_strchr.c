@@ -17,7 +17,9 @@ char	*ft_strchr(char *s, int c)
 {
 	int	i;
 	char *ptr;
-       
+
+       	if(!s)
+		return(NULL);
 	ptr = s;
 	i = 0;
 
