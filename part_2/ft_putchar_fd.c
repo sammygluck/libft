@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:36:28 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/16 15:51:39 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/16 15:18:11 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/16 15:19:41 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-int	ft_isdigit(int c)
+void	ft_putchr_fd(char c, int fd)
 {
-	return (c >= '0' && c <= '9');
+	write(fd, &c, 1);
+}
+
+int	main(void)
+{
+	ft_putchr_fd('a', 1);
 }

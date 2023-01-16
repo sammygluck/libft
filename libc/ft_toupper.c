@@ -6,21 +6,15 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:25:25 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 16:32:08 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/16 17:37:57 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_toupper(int	c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);
 	else
 		return (c);
-}
-
-int	main(void)
-{
-	printf("%c", ft_toupper('!'));
 }

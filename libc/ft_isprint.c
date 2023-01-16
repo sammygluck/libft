@@ -6,11 +6,13 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 15:57:51 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 15:58:52 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/16 15:56:01 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int	c)
+#include "libft.h"
+
+int	ft_isprint(int c)
 {
 	return (c >= 32 && c <= 127);
 }

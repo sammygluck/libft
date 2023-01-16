@@ -6,16 +6,16 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 18:17:15 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 18:33:42 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/16 16:21:25 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
-	if (!dst)
+	if (!dest)
 		return (NULL);
 	i = 0;
 	while (i < n)
