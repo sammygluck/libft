@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 16:33:10 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 16:35:22 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/11 15:57:51 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/16 15:56:01 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int	ft_tolower(int	c)
+int	ft_isprint(int c)
 {
-	if(c >= 'A' && c <= 'Z')
-		return(c + 32);
-	else
-		return(c);
-}
-
-int	main(void)
-{
-	printf("%c", ft_tolower('A'));
+	return (c >= 32 && c <= 127);
 }

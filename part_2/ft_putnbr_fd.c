@@ -1,32 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 18:58:43 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 19:04:23 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/15 16:40:45 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/15 17:07:37 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
+	char nbr;
 
-	i = 0;
-	if (size > 0)
+	if(n == -2147483648)
 	{
-		while(i < size)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
+		write(fd, "-2", 2);
+		n = 147483648;
 	}
-	while(src[i])
-		i++;
-	return (i);
+	if(n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if(n > 9)
+	{
+		nbr = n % 10 + '0';
+		ft_putnbr_fd(n / 10, fd);
+	}
+	if(n < 10)
+	{
+		nbr = n + '0';
+		write(fd, &nbr , 1);
+	}
+}
+
+int	main(void)
+{
+	ft_putnbr_fd(-2147483648, 1);
 }

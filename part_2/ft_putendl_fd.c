@@ -1,16 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 15:54:13 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/11 15:56:47 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/15 16:32:21 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/15 16:39:36 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include <unistd.h>
+
+void	ft_putendl_fd(char *s, int fd)
 {
-	return(c >= 0 && c <= 127);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+	write(fd,"\n", 1);
+}
+
+int	main(void)
+{
+	char str[] = "hello";
+	ft_putendl_fd(str, 1);
+	return (0);
 }

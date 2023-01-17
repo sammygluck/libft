@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 16:25:25 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/12 16:32:08 by sgluck           ###   ########.fr       */
+/*   Created: 2023/01/12 16:33:10 by sgluck            #+#    #+#             */
+/*   Updated: 2023/01/16 17:39:29 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
-#include <stdio.h>
 
-int	ft_toupper(int	c)
+#include "libft.h"
+
+int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
 	else
 		return (c);
-}
-
-int	main(void)
-{
-	printf("%c", ft_toupper('!'));
 }
