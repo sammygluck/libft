@@ -1,0 +1,47 @@
+Makefile:
+
+'make' will call the Makefile.
+'make clean' will call the clean function in your Makefile
+
+note that 'make' with no arguments will call the first rule in the Makefile
+-------------
+syntax
+
+regle_a:
+	echo "regle A" (tab necessary)
+
+(then use 'make regle_a'. The result will be also that the command will show on stdout. To make it silent we can use the @ sign right before the command.)
+
+regle_b: regle_a
+	echo "regle B"
+
+-------------
+Variables:
+
+TEXT = "42 is for the braves"
+
+regle_a:
+	echo $(TEXT)
+
+-------------
+Example:
+
+NAME = awesomeprog
+
+SRC = source.c [all sources I want to compile, add \ if you need another line the same way you use for preprocess macros in c]
+
+
+all: $(NAME) [will call the rule $(NAME) wich will soon follow]
+
+$(NAME):
+	gcc -o $(NAME) $(SRC)
+
+clean:
+	/bin/rm -f *.o
+
+fclean: clean
+	/bin/rm -f $(NAME)
+
+re: fclean all
+
+

@@ -1,0 +1,150 @@
+gcc -c file.c
+ar rc libstr.a ft_a.o ft_b.o ft_c.o
+gcc main.c  -L. -lstr
+ranlib libstr.a 
+
+
+cpp main.c
+
+#define TOTO int (wherever you write TOTO it gets replaced by int)
+#define TOTO(x) int x;
+#define TOTO(X) #x
+
+---------------------------------------------------
+
+if, ifdef, ifndef, endif, elif
+------
+#ifdef TOTO
+
+int	main(void)
+{
+	return (0);
+}
+
+#endif
+------
+/* the past few lines mean: if TOTO is defined, whatever is between # and endif will be added to the file.
+Now with ifndef it's the opposite: if TOTO isnt' defined, whatever's between #ifndef and #endif will be executed. You could nest one in the other as such:
+------
+#ifdef
+
+# ifndef
+# endif
+
+#endif
+------
+--------
+elif = else if (try to avoid)
+
+-----------------------------------------------------
+
+Multiple includes:
+problems can occur in the following scenario:
+test1.c has #include "test1.h"
+test1.h has #include "test2.h"
+test2.h has #include "test1.h"
+Here an infinite loop will be created and will cause errors
+
+How can we protect our files from such errors?
+
+------
+#ifndef __FT_TEST1_H__
+# define __FT_TEST1_H__
+
+#include "test2.h"
+
+#endif
+------
+
+! This should become second nature when creating header files. Make sure you define the right macro names because if you don't and there are duplicates, it will omit the second one it encounters.
+
+
+--------------------------------------------------------
+
+Typedef:
+
+-typedef vs define: typedef creates new type; define replaces
+
+examples of typedef:
+typedef unsigned char BYTE;
+typedef int* int_p;
+
+
+-------------------------------------------------------
+
+Structs:
+
+example:
+---------
+struct	s_point
+{
+	int x;
+	int y;
+};
+
+int	main(void)
+{
+	struct s_point a;
+	struct s_point b;
+
+	a.x = 10;
+	a.y = 42;
+	b = a;
+
+	return (0);
+}
+
+--------
+
+
+Now, we can simplify it even more. Instead of declaring 'struc s_point a;' each time we want to use one, we can make a typedef using this struct as follows:
+-------
+typedef struct s_point
+{
+	int x;
+	int y;
+}			t_point;
+
+int	main(void)
+{
+	t_point a;
+	t_point b;
+
+	a.x = 10;
+	a.y = 42;
+	b = a;
+
+	return (0);
+}
+------
+
+
+
+Using pointers with structs:
+
+-------
+typedef struct s_point
+{
+	int x;
+	int y;
+}			t_point;
+
+int	main(void)
+{
+	t_point a;
+	t_point b;
+	t_point *ptr;
+
+	a.x = 10;
+	a.y = 42;
+	b = a;
+	ptr = &a;
+	(*ptr).x = 10; (one way to dereference. or:)
+	ptr->x = 10;
+
+	return (0);
+}
+------
+Other data structures:
+ enum
+ union
