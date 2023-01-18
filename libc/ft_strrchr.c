@@ -11,25 +11,18 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_strrchr(char *str, int c)
 {
-	char	*ptr;
 	int	end;
+	int	i;
 
 	end = ft_strlen(str);
-	ptr = str + end;
-	while(*ptr != c)
-		ptr--;
-	return (ptr);
-}
-
-int	main(void)
-{
-	char	string[] = "hello world";
-
-	printf("%s\n", string);
-	printf("%s\n", ft_strrchr(string, '\0'));
-	return (0);
+	while(0 <= end)
+	{
+		if(str[end] == (char) c)
+			return((char *)(str + end));
+		end--;
+	}
+	return (NULL);
 }
