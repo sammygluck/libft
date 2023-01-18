@@ -11,14 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-int	main(void)
-{
-	char	string[] = "I would like to wish you a happy new year.";
-
-	printf("%s\n", ft_strnstr(string, "wish",));
-}
 
 char *strnstr(char *big, const char *little, size_t len)
 {
@@ -27,17 +19,17 @@ char *strnstr(char *big, const char *little, size_t len)
 
 
 	if (!big)
-		return(NULL);
+		return (NULL);
 	if (!little || !little[0])
-		return((char *)(big);
+		return ((char *)(big));
 	i = 0;
-	while(big[i] && i < len)
+	while (big[i] && i < len)
 	{
 		j = 0;
-		while(big[i + j] == little[j] && little[j] && big[i + j] && ((i + j) < len))
+		while (big[i + j] == little[j] && little[j] && big[i + j] && ((i + j) < len))
 			j++;
 		if (!little[j])
-			return((char *)(big + i));
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);
