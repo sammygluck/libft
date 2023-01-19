@@ -32,4 +32,4 @@ int	stringlength(char *str, location x, delimiter)
 		maybe we can use strlcpy
 		so we can pass 1. string 2. index of string 3. new string 4. length of string
 		string[index], new_string, length,
-
+https://github.com/Ysoroko/FT_SPLIT_TESTER/blob/master/ft_my_split.c
