@@ -6,11 +6,10 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 15:27:42 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/18 18:44:22 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/22 17:20:22 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	*calloc(size_t nmemb, size_t size)
@@ -24,6 +23,6 @@ void	*calloc(size_t nmemb, size_t size)
 	ptr = (void *)malloc(total_size);
 	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, count);
+	ft_bzero(ptr, total_size);
 	return (ptr);
 }
