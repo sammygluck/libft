@@ -6,7 +6,7 @@
 #    By: sgluck <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/22 18:18:46 by sgluck            #+#    #+#              #
-#    Updated: 2023/01/22 18:51:42 by sgluck           ###   ########.fr        #
+#    Updated: 2023/01/24 18:30:32 by sgluck           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,3 +37,7 @@ fclean:	clean
 	$(RM) $(NAME)
 
 re:	fclean $(NAME)
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)

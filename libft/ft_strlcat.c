@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:55:46 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/16 17:36:30 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/24 18:56:25 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (dstsize <= dstlen)
 		return (srclen + dstsize);
 	if (dstsize > (srclen + dstlen))
-			dstsize = srclen + dstlen + 1;
+		dstsize = srclen + dstlen + 1;
 	bytes = dstsize - dstlen - 1;
 	i = 0;
 	while (i < bytes)
