@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	a = 0;
 	while (i < n && !a)
 	{
-		a = (const unsigned char *)s1[i] - (const unsigned char *)s2[i];
+		a = *(const unsigned char *)(s1 + i) - *(const unsigned char *)(s2 + i);
 		i++;
 	}
 	return (a);

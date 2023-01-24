@@ -24,7 +24,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		a = (unsigned char)s1[i] - (unsigned char)s2[i];
 		i++;
 	}
-	if (!a && (s1[c] == '\0' || s2[c] == '\0') && i < n)
+	if (!a && (s1[i] == '\0' || s2[i] == '\0') && i < n)
 		a = (unsigned char)s1[i] - (unsigned char)s2[i];
 	return (a);
 }
