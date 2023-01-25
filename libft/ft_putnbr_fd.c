@@ -28,14 +28,11 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n > 9)
 	{
-		nbr = n % 10 + '0';
 		ft_putnbr_fd(n / 10, fd);
+		n = n % 10;
 	}
-	if (n < 10)
-	{
-		nbr = n + '0';
-		write(fd, &nbr, 1);
-	}
+	nbr = n + '0';
+	write(fd, &nbr, 1);
 }
 
 /*int	main(void)

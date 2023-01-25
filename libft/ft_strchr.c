@@ -26,6 +26,6 @@ char	*ft_strchr(char *s, int c)
 		i++;
 	}
 	if (s[i] == (char) c)
-		return ((char *)(s + 1));
+		return ((char *)(s + i));
 	return (NULL);
 }

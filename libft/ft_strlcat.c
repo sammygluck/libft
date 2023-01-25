@@ -23,7 +23,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	srclen = ft_strlen((char *)src);
 	if (dstsize <= dstlen)
 		return (srclen + dstsize);
-	//cat dst + src
+	if (dstsize > (srclen + dstlen))
+			dstsize = srclen + dstlen + 1;
 	bytes = dstsize - dstlen - 1;
 	i = 0;
 	while (i < bytes)

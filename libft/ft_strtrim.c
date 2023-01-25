@@ -1,73 +1,60 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/15 15:20:59 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/22 16:59:13 by sgluck           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
 
-static int	ft_str_chr(char const *str, char c)
+static int	ft_is_trim_possible(char c, char const *set)
 {
-	size_t	i;
+	int	count;
 
-	i = 0;
-	while (str[i])
+	count = -1;
+	while (set[++count])
 	{
-		if (str[i] == c)
+		if (set[count] == c)
 			return (1);
-		i++;
 	}
 	return (0);
 }
 
-static	int	ft_str_len(char const *str)
+static int	ft_get_size(char const *s1, char const *set)
 {
-	int	i;
+	int	count;
+	int	size;
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	size = ft_strlen(s1);
+	count = 0;
+	while (ft_is_trim_possible(s1[size - count - 1], set))
+		count++;
+	return (size - count);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*new;
-	int		start;
-	int		end;
-	int		i;
+	int	count;
+	int	size;
+	char	*tab;
 
-	if (!s1 || !set)
+	count = 0;
+	size = 0;
+	if (!s1)
 		return (NULL);
-	start = 0;
-	while (s1[start] && ft_str_chr(set, s1[start]))
-		start++;
-	end = ft_str_len(s1);
-	while (s1[end] && ft_str_chr(set, s1[end]))
-		end--;
-	new = (char *)malloc(end - start + 1 * sizeof(char));
-	if (!new)
+	if (!set)
+		return (ft_strdup(s1));
+	while (ft_is_trim_possible(s1[count], set))
+		count++;
+	if (count == (int)ft_strlen(s1))
+		return (ft_strdup(""));
+	size = ft_get_size(s1 + count, set) + 1;
+	tab = (char *)malloc((size) * sizeof(char));
+	if (!tab)
 		return (NULL);
-	i = 0;
-	while (i < (end - start - 1))
-	{
-		new[i] = s1[start + i];
-		i++;
-	}
-	new[i] = '\0';
-	return (new);
+	ft_strlcpy(tab, s1 + count, size);
+	return (tab);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+int   main(void)
 {
-	char str[] = "\tHello my name is SG \n";
-	char set[] = "\t\n";
-	printf("%s\n", str);
-	printf("%s\n", ft_strtrim(str, set));
+        char str[] = "\tHello my name is SG \n";
+        char set[] = "\t\n";
+        printf("%s\n", str);
+        printf("%s\n", ft_strtrim(str, set));
 }*/
+       

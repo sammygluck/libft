@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	length(int nb)
+static int	length(int nb)
 {
 	int	l;
 
@@ -30,6 +30,28 @@ int	length(int nb)
 	return (l);
 }
 
+static char	*exception(int n)
+{
+	char *str;
+	
+	if (n == -2147483648)
+	{
+		str = (char *)malloc(12 * sizeof(char));
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
+	}
+	else 
+	{
+		str = (char *)malloc(2 * sizeof(char));
+		if (!str)
+			return (NULL);
+		ft_strlcpy(str, "0", 2);
+		return (str);
+	}
+}
+
 char	*ft_itoa(int n)
 {
 	int			len;
@@ -37,6 +59,8 @@ char	*ft_itoa(int n)
 	char		*result;
 
 	sign = 1;
+	if (n == -2147483648 || n == 0)
+		return (exception(n));
 	len = length(n);
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
@@ -53,11 +77,12 @@ char	*ft_itoa(int n)
 		result[0] = '-';
 	return (result);
 }
-
-/*int	main(void)
+/*
+#include <stdio.h>
+int	main(void)
 {
 	int	a;
 
-	a = 2147483648;
+	a = -2147483648;
 	printf("%s\n", ft_itoa(a));
 }*/

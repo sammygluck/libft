@@ -21,19 +21,23 @@ int	ft_atoi(char *str)
 	i = 0;
 	number = 0;
 	sign = 1;
-	while ((str[i] >= 8 && str[i] <= 13) || str[i] == 32)
+	while ((str[i] > 8 && str[i] <= 13) || str[i] == 32)
 		i++;
-	while (str[i] == '+')
-		i++;
-	while (str[i] == '-')
-	{
+	if (str[i] == '-')
 		sign *= -1;
+	if (str[i] == '-' || str[i] == '+')
 		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	while (str[i] >= '0' && str[i] <= '9')
 	{
 		number = (number * 10) + str[i] - '0';
 		i++;
 	}
 	return (number * sign);
 }
+
+/*#include <stdio.h>
+int	main(void)
+{
+	printf("%d", ft_atoi("\010 9"));
+}*/
+
