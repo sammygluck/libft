@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:28:42 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/22 17:13:16 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:07:13 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
-int		ft_atoi(char *str);
+int		ft_atoi(const char *str);
 
 #endif

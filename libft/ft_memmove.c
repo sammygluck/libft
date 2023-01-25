@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 18:38:06 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/24 18:38:07 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:13:24 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*d;
 	size_t	i;
 
+	if (!dst && !src)
+		return (NULL);
 	s = (char *)src;
 	d = (char *)dst;
 	i = 0;

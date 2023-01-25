@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:33:05 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/18 16:55:04 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:33:07 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ char	*ft_strnstr(char *big, const char *little, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (!big)
+	if (!big && !little)
 		return (NULL);
-	if (!little || !little[0])
+	if (!len)
 		return ((char *)(big));
 	i = 0;
 	while (big[i] && i < len)
