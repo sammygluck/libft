@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 15:55:46 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/25 16:28:38 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/25 19:09:57 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	if (!dst && !src)
 		return (0);
 	if (!dstsize)
-		return (0);
+		return (ft_strlen(src));
 	dstlen = ft_strlen(dst);
 	srclen = ft_strlen(src);
 	if (dstsize <= dstlen)
