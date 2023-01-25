@@ -40,4 +40,3 @@ int	main(void)
 {
 	printf("%d", ft_atoi("\010 9"));
 }*/
-

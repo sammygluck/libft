@@ -27,8 +27,8 @@ static int	ft_get_size(char const *s1, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int	count;
-	int	size;
+	int		count;
+	int		size;
 	char	*tab;
 
 	count = 0;
@@ -55,6 +55,4 @@ int   main(void)
         char str[] = "\tHello my name is SG \n";
         char set[] = "\t\n";
         printf("%s\n", str);
-        printf("%s\n", ft_strtrim(str, set));
-}*/
-       
+        printf("%s\n", ft_strtrim(str, set));}*/

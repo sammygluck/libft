@@ -32,8 +32,8 @@ static int	length(int nb)
 
 static char	*exception(int n)
 {
-	char *str;
-	
+	char	*str;
+
 	if (n == -2147483648)
 	{
 		str = (char *)malloc(12 * sizeof(char));
@@ -42,7 +42,7 @@ static char	*exception(int n)
 		ft_strlcpy(str, "-2147483648", 12);
 		return (str);
 	}
-	else 
+	else
 	{
 		str = (char *)malloc(2 * sizeof(char));
 		if (!str)
