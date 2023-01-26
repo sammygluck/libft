@@ -6,7 +6,7 @@
 /*   By: sgluck <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 15:08:31 by sgluck            #+#    #+#             */
-/*   Updated: 2023/01/22 17:17:40 by sgluck           ###   ########.fr       */
+/*   Updated: 2023/01/25 16:33:47 by sgluck           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strdup(const char *s)
 	int		len;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	len = ft_strlen((char *)s);
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
